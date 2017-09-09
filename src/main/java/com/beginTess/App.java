@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 import com.beginTess.tess.InitTess;
+import com.beginTess.tess.OCRImage;
+
 import javax.imageio.ImageIO;
 
 import com.beginTess.constants.FileConstants;
@@ -25,7 +27,7 @@ public class App
     	
     	for (int i=0;i<FileConstants.input_files.length;i++){
     		BufferedImage bufferedImage = readInputFiles(FileConstants.input_files[i]);
-    		results.put(FileConstants.input_files[i], InitTess.getTesseract().doOCR(bufferedImage));
+    		results.put(FileConstants.input_files[i], OCRImage.ocr(bufferedImage));
     	}
     	
     	return results.toString();
